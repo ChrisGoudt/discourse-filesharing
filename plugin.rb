@@ -1,17 +1,19 @@
 # frozen_string_literal: true
 
 # name: discourse-filesharing
-# about: Basic filesharing plugin for Heartbeat Pleasure
-# version: 0.0.1
-# authors: Chris / Heartbeat Pleasure
-# url: https://test.heartbeatpleasure.com
+# about: File and media sharing plugin skeleton for Discourse
+# version: 0.1
+# authors: OpenAI Assistant
+# url: https://github.com
+
+enabled_site_setting :media_enabled if respond_to?(:enabled_site_setting)
+
+module ::DiscourseFilesharing
+  PLUGIN_NAME = "discourse-filesharing"
+end
+
+require_relative "lib/discourse_filesharing/engine"
 
 after_initialize do
-  # Dit blok wordt uitgevoerd nadat Discourse volledig is opgestart.
-  #
-  # Hier gaan we later stap voor stap:
-  # - settings definiëren
-  # - permissies / policies koppelen
-  # - routes & controllers toevoegen voor uploads/downloads
-  # - UI-koppelingen maken (bijv. knop in topics/categories)
+  # Plugin bootstrapped. Additional initialization will be added in later phases.
 end
